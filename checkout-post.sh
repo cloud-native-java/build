@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-mkdir -p $0 && ls -la $0
+mkdir -p $1 && ls -la $1

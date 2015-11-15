@@ -7,11 +7,14 @@ CF_PASSWORD=$2
 CF_ORG=$3
 CF_SPACE=$4
 
-curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&source=github'
-sudo dpkg -i cf-cli_amd64.deb
 
 
 mvn -X -DskipTests=true clean install
+
+
+curl -v -L -o cf-cli_amd64.deb 'https://cli.run.pivotal.io/stable?release=debian64&source=github'
+sudo dpkg -i cf-cli_amd64.deb
+
 
 
 cf api https://api.run.pivotal.io

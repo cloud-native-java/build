@@ -1,6 +1,7 @@
 #!/bin/bash
 
-export PATH=$PATH:.
+export PATH=$PATH:$HOME/bin
+
 
 
 # run the tests and deploy the service

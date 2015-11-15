@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-export PATH=$PATH:.
+mkdir -p $HOME/bin
 
 CF_USER=$1
 CF_PASSWORD=$2
@@ -14,8 +14,9 @@ CF_SPACE=$4
 curl -v -L -o cf.tgz 'https://cli.run.pivotal.io/stable?release=linux64-binary&version=6.13.0&source=github-rel'
 tar zxpf cf.tgz
 
-ls -la ./cf
+mv cf $HOME/bin
 
+export PATH=$PATH:$HOME/bin
 
 
 cf api https://api.run.pivotal.io

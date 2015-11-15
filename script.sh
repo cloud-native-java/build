@@ -1,3 +1,3 @@
 #!/bin/bash
 
-mvn clean deploy
+mvn -X -DskipTests=true clean deploy

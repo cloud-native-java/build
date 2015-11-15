@@ -1,6 +1,7 @@
 #!/bin/bash
 
 
+export PATH=$PATH:.
 
 CF_USER=$1
 CF_PASSWORD=$2
@@ -14,7 +15,9 @@ tar zxpf cf.tgz
 
 ls -la ./cf
 
-./cf api https://api.run.pivotal.io
-./cf auth $CF_USER $CF_PASSWORD
-./cf target -o $CF_ORG -s $CF_SPACE
-./cf apps
+
+
+cf api https://api.run.pivotal.io
+cf auth $CF_USER $CF_PASSWORD
+cf target -o $CF_ORG -s $CF_SPACE
+cf apps

@@ -15,26 +15,20 @@ function traverse_and_deploy(){
     cmd="";
 
     find $root -mindepth 1  -maxdepth 1 -type d | while read l; do
+        
         curd=$(cd $l && pwd)
 
         ( ls -la $curd | grep manifest.yml ) > /dev/null && cmd="manifest"
         ( ls -la $curd | grep cf-deploy.sh ) > /dev/null && cmd="script"
 
-        echo "the command is $cmd"
-
         if [ "$cmd" ==  "script" ]
         then
-            echo "Trying to do a CF PUSH with a cf-deploy.sh"
-
-            cd $curd && $curd/cf-deploy.sh &
-
+            echo "Trying to do a CF PUSH with a cf-deploy.sh";
+            cd $curd && $curd/cf-deploy.sh
         elif [ "$cmd" == "manifest" ]
         then
-
             echo "Trying to do a CF PUSH with manifest.yml";
-
-            cd $curd && cf push &
-
+            cd $curd && cf push
             traverse_and_deploy $curd
         else
             traverse_and_deploy $curd

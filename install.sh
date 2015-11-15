@@ -15,4 +15,4 @@ CF_SPACE=$4
 #cf target -o $CF_ORG -s $CF_SPACE
 #cf apps
 
-mvn clean install
+mvn -DskipTests=true clean install

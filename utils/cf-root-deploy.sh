@@ -44,11 +44,10 @@ function traverse_and_deploy(){
 
 function traverse_and_reset(){
 
+    root=$1
     svcs_to_delete_file="${SWAP}services_to_delete_$RANDOM.txt"
-    touch $svcs_to_delete_file
-    echo $svcs_to_delete_file
-
-    find . -iname "manifest.yml" -type f | while read l ; do
+    
+    find $root -iname "manifest.yml" -type f | while read l ; do
         app_name=$( cat $l | grep name | cut -f 2 -d: );
         cf d -f $app_name
 
@@ -64,7 +63,6 @@ function traverse_and_reset(){
     rm -rf $svcs_to_delete_file
 
     cf delete-orphaned-routes -f
-
 }
 
 
@@ -72,11 +70,6 @@ function traverse_and_reset(){
 
 traverse_and_reset $PWD
 traverse_and_deploy $PWD
-
-# wait until background jobs terminate
-echo "..about to wait for $pids"
-wait $pids
-echo "..finished waiting for $pids"
 
 cf services
 cf apps

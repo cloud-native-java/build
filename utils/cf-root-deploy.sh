@@ -15,7 +15,7 @@ function traverse_and_deploy(){
     cmd="";
 
     find $root -mindepth 1  -maxdepth 1 -type d | while read l; do
-        
+
         curd=$(cd $l && pwd)
 
         ( ls -la $curd | grep manifest.yml ) > /dev/null && cmd="manifest"

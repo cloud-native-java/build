@@ -13,4 +13,4 @@ function integration_test(){
     [ -d "$integration_test" ] &&  mvn -f $integration_test/pom.xml clean install || echo "there are no integration tests in '$integration_test'"
 }
 
-integration_test  `pwd`
+integration_test `pwd`

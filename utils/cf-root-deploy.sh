@@ -47,15 +47,15 @@ function traverse_and_reset(){
         cf d -f $app_name
 
         $ROOT_DIR/cf-services.py $app_name "`cf oauth-token`" | while read s; do
-            echo "$s" >> $svcs_to_delete_file
+            echo "$s" >> ${svcs_to_delete_file}
         done
     done
 
-    grep -v '^$' $svcs_to_delete_file | while read svc ; do
+    grep -v '^$' ${svcs_to_delete_file} | while read svc ; do
         cf ds -f $svc ;
     done
 
-    rm -rf $svcs_to_delete_file
+    rm -rf ${svcs_to_delete_file}
 
     cf delete-orphaned-routes -f
 }

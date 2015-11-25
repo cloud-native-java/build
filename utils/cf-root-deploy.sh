@@ -23,7 +23,7 @@ function traverse_and_deploy(){
         script_file=$curd/cf-deploy.sh
 
         manifest_file=$curd/manifest.yml
-        
+
         [ -d "${script_file}" ] && cmd="script";
         [ -d "${manifest_file}" ] && cmd="manifest"
 
@@ -58,7 +58,7 @@ function traverse_and_reset(){
         done
     done
 
-    grep -v '^$' ${svcs_to_delete_file} | while read svc ; do
+    [ -d "${svcs_to_delete_file}" ] &&  grep -v '^$' ${svcs_to_delete_file} | while read svc ; do
         cf ds -f $svc ;
     done
 

@@ -18,8 +18,15 @@ function traverse_and_deploy(){
 
         curd=$(cd $l && pwd)
 
-        ( ls -la $curd | grep manifest.yml ) > /dev/null && cmd="manifest"
-        ( ls -la $curd | grep cf-deploy.sh ) > /dev/null && cmd="script"
+        cmd="";
+
+        script_file=$curd/cf-deploy.sh
+
+        manifest_file=$curd/manifest.yml
+        
+        [ -d "${script_file}" ] && cmd="script";
+        [ -d "${manifest_file}" ] && cmd="manifest"
+
 
         if [ "$cmd" ==  "script" ]
         then

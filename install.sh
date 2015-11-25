@@ -9,7 +9,7 @@ CF_ORG=$3
 CF_SPACE=$4
 
 
-mvn -X clean install
+mvn clean install
 
 curl -v -L -o cf.tgz 'https://cli.run.pivotal.io/stable?release=linux64-binary&version=6.13.0&source=github-rel'
 tar zxpf cf.tgz

@@ -10,4 +10,4 @@ mvn -DskipTests=true clean deploy
 # deploy to CF
 UTILS=$( cd `dirname $0` && pwd )/utils
 $UTILS/cf-root-deploy.sh
-$UTILS/cf-root-deploy.sh
+$UTILS/integration-test.sh

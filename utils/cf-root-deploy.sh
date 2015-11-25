@@ -16,7 +16,7 @@ function traverse_and_deploy(){
 
     find $root -mindepth 1  -maxdepth 1 -type d | while read l; do
 
-        curd=$(cd $l && pwd)
+        curd=$(cd $l && pwd);
 
         cmd="";
 
@@ -25,8 +25,8 @@ function traverse_and_deploy(){
         manifest_file=$curd/manifest.yml
 
         [ -d "${script_file}" ] && cmd="script";
-        [ -d "${manifest_file}" ] && cmd="manifest"
 
+        [ -d "${manifest_file}" ] && cmd="manifest";
 
         if [ "$cmd" ==  "script" ]
         then

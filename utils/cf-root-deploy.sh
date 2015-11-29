@@ -20,7 +20,7 @@ function traverse_and_deploy(){
 
         cmd="";
 
-        script_file=$curd/cf-deploy.sh
+        script_file=$curd/deploy.sh
 
         manifest_file=$curd/manifest.yml
 
@@ -30,8 +30,8 @@ function traverse_and_deploy(){
 
         if [ "$cmd" ==  "script" ]
         then
-            echo "Trying to do a CF PUSH with a cf-deploy.sh";
-            cd $curd && $curd/cf-deploy.sh
+            echo "Trying to do a CF PUSH with a deploy.sh";
+            cd $curd && $script_file
         elif [ "$cmd" == "manifest" ]
         then
             echo "Trying to do a CF PUSH with manifest.yml";

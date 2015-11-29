@@ -14,7 +14,7 @@ function traverse_and_deploy(){
 
     cmd="";
 
-    find $root -mindepth 1  -maxdepth 1 -type d | while read l; do
+    find $root   -maxdepth 1 -type d | while read l; do
 
         curd=$(cd $l && pwd);
 

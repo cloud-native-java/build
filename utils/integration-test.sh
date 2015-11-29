@@ -9,8 +9,9 @@ $ROOT_DIR/cf-common.sh
 
 function integration_test(){
     root=$1
-    integration_test=$root/`basename $root`-integration
+    integration_test=$root/`basename $root`-it
     [ -d "$integration_test" ] &&  mvn -f $integration_test/pom.xml clean install || echo "there are no integration tests in '$integration_test'"
+
 }
 
 integration_test `pwd`

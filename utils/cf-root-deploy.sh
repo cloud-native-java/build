@@ -30,8 +30,6 @@ function invoke_file_in_dir(){
     else
         traverse_and_deploy $curd
     fi
-
-
 }
 
 function traverse_and_deploy(){

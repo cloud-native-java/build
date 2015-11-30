@@ -73,7 +73,7 @@ function traverse_and_reset(){
 
 traverse_and_reset $PWD
 invoke_file_in_dir $PWD
-traverse_and_deploy $PWD
+#traverse_and_deploy $PWD
 
 cf services
 cf apps

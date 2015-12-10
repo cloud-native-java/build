@@ -8,7 +8,6 @@ CF_PASSWORD=$2
 CF_ORG=$3
 CF_SPACE=$4
 
-
 function install_cf(){
     curl -v -L -o cf.tgz 'https://cli.run.pivotal.io/stable?release=linux64-binary&version=6.13.0&source=github-rel'
     tar zxpf cf.tgz
@@ -18,7 +17,6 @@ function install_cf(){
 function validate_cf(){
 
     cf  -v || install_cf
-
 
     export PATH=$PATH:$HOME/bin
 

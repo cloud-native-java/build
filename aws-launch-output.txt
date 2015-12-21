@@ -1,0 +1,188 @@
+bkromhout:~ bkromhout$ ./aws-launch.sh 
++ aws ec2 delete-key-pair --key-name cloud-native-java
++ aws ec2 delete-security-group --group-name cloud-native-java
++ rm /Users/bkromhout/cloud-native-java.pem
++ aws ec2 create-key-pair --key-name cloud-native-java --query KeyMaterial --output text
++ chmod 600 /Users/bkromhout/cloud-native-java.pem
++ aws ec2 create-security-group --group-name cloud-native-java --description cloud-native-java
+{
+    "GroupId": "sg-c1a7a3a5"
+}
++ aws ec2 authorize-security-group-ingress --group-name cloud-native-java --protocol tcp --port 22 --cidr 0.0.0.0/0
++ aws ec2 run-instances --image-id ami-5189a661 --key-name cloud-native-java --instance-type t2.micro --security-groups cloud-native-java
+{
+    "OwnerId": "031026557388", 
+    "ReservationId": "r-4848e88d", 
+    "Groups": [], 
+    "Instances": [
+        {
+            "Monitoring": {
+                "State": "disabled"
+            }, 
+            "PublicDnsName": "", 
+            "RootDeviceType": "ebs", 
+            "State": {
+                "Code": 0, 
+                "Name": "pending"
+            }, 
+            "EbsOptimized": false, 
+            "LaunchTime": "2015-12-20T18:15:16.000Z", 
+            "PrivateIpAddress": "172.31.16.229", 
+            "ProductCodes": [], 
+            "VpcId": "vpc-51671c34", 
+            "StateTransitionReason": "", 
+            "InstanceId": "i-f784be33", 
+            "ImageId": "ami-5189a661", 
+            "PrivateDnsName": "ip-172-31-16-229.us-west-2.compute.internal", 
+            "KeyName": "cloud-native-java", 
+            "SecurityGroups": [
+                {
+                    "GroupName": "cloud-native-java", 
+                    "GroupId": "sg-c1a7a3a5"
+                }
+            ], 
+            "ClientToken": "", 
+            "SubnetId": "subnet-dfe8a1ba", 
+            "InstanceType": "t2.micro", 
+            "NetworkInterfaces": [
+                {
+                    "Status": "in-use", 
+                    "MacAddress": "02:3e:fb:34:c2:f5", 
+                    "SourceDestCheck": true, 
+                    "VpcId": "vpc-51671c34", 
+                    "Description": "", 
+                    "NetworkInterfaceId": "eni-63520a1a", 
+                    "PrivateIpAddresses": [
+                        {
+                            "PrivateDnsName": "ip-172-31-16-229.us-west-2.compute.internal", 
+                            "Primary": true, 
+                            "PrivateIpAddress": "172.31.16.229"
+                        }
+                    ], 
+                    "PrivateDnsName": "ip-172-31-16-229.us-west-2.compute.internal", 
+                    "Attachment": {
+                        "Status": "attaching", 
+                        "DeviceIndex": 0, 
+                        "DeleteOnTermination": true, 
+                        "AttachmentId": "eni-attach-1976aa13", 
+                        "AttachTime": "2015-12-20T18:15:16.000Z"
+                    }, 
+                    "Groups": [
+                        {
+                            "GroupName": "cloud-native-java", 
+                            "GroupId": "sg-c1a7a3a5"
+                        }
+                    ], 
+                    "SubnetId": "subnet-dfe8a1ba", 
+                    "OwnerId": "031026557388", 
+                    "PrivateIpAddress": "172.31.16.229"
+                }
+            ], 
+            "SourceDestCheck": true, 
+            "Placement": {
+                "Tenancy": "default", 
+                "GroupName": "", 
+                "AvailabilityZone": "us-west-2a"
+            }, 
+            "Hypervisor": "xen", 
+            "BlockDeviceMappings": [], 
+            "Architecture": "x86_64", 
+            "StateReason": {
+                "Message": "pending", 
+                "Code": "pending"
+            }, 
+            "RootDeviceName": "/dev/sda1", 
+            "VirtualizationType": "hvm", 
+            "AmiLaunchIndex": 0
+        }
+    ]
+}
++ '[' -z '' ']'
++ sleep 1
+++ aws ec2 describe-instances --filter Name=key-name,Values=cloud-native-java Name=instance-state-name,Values=running --query 'Reservations[].Instances[].[PublicIpAddress]' --output text
++ PUBLIC_IP=
++ '[' -z '' ']'
++ sleep 1
+++ aws ec2 describe-instances --filter Name=key-name,Values=cloud-native-java Name=instance-state-name,Values=running --query 'Reservations[].Instances[].[PublicIpAddress]' --output text
++ PUBLIC_IP=
++ '[' -z '' ']'
++ sleep 1
+++ aws ec2 describe-instances --filter Name=key-name,Values=cloud-native-java Name=instance-state-name,Values=running --query 'Reservations[].Instances[].[PublicIpAddress]' --output text
++ PUBLIC_IP=
++ '[' -z '' ']'
++ sleep 1
+++ aws ec2 describe-instances --filter Name=key-name,Values=cloud-native-java Name=instance-state-name,Values=running --query 'Reservations[].Instances[].[PublicIpAddress]' --output text
++ PUBLIC_IP=
++ '[' -z '' ']'
++ sleep 1
+++ aws ec2 describe-instances --filter Name=key-name,Values=cloud-native-java Name=instance-state-name,Values=running --query 'Reservations[].Instances[].[PublicIpAddress]' --output text
++ PUBLIC_IP=
++ '[' -z '' ']'
++ sleep 1
+++ aws ec2 describe-instances --filter Name=key-name,Values=cloud-native-java Name=instance-state-name,Values=running --query 'Reservations[].Instances[].[PublicIpAddress]' --output text
++ PUBLIC_IP=
++ '[' -z '' ']'
++ sleep 1
+++ aws ec2 describe-instances --filter Name=key-name,Values=cloud-native-java Name=instance-state-name,Values=running --query 'Reservations[].Instances[].[PublicIpAddress]' --output text
++ PUBLIC_IP=
++ '[' -z '' ']'
++ sleep 1
+++ aws ec2 describe-instances --filter Name=key-name,Values=cloud-native-java Name=instance-state-name,Values=running --query 'Reservations[].Instances[].[PublicIpAddress]' --output text
++ PUBLIC_IP=
++ '[' -z '' ']'
++ sleep 1
+++ aws ec2 describe-instances --filter Name=key-name,Values=cloud-native-java Name=instance-state-name,Values=running --query 'Reservations[].Instances[].[PublicIpAddress]' --output text
++ PUBLIC_IP=
++ '[' -z '' ']'
++ sleep 1
+++ aws ec2 describe-instances --filter Name=key-name,Values=cloud-native-java Name=instance-state-name,Values=running --query 'Reservations[].Instances[].[PublicIpAddress]' --output text
++ PUBLIC_IP=
++ '[' -z '' ']'
++ sleep 1
+++ aws ec2 describe-instances --filter Name=key-name,Values=cloud-native-java Name=instance-state-name,Values=running --query 'Reservations[].Instances[].[PublicIpAddress]' --output text
++ PUBLIC_IP=
++ '[' -z '' ']'
++ sleep 1
+++ aws ec2 describe-instances --filter Name=key-name,Values=cloud-native-java Name=instance-state-name,Values=running --query 'Reservations[].Instances[].[PublicIpAddress]' --output text
++ PUBLIC_IP=
++ '[' -z '' ']'
++ sleep 1
+++ aws ec2 describe-instances --filter Name=key-name,Values=cloud-native-java Name=instance-state-name,Values=running --query 'Reservations[].Instances[].[PublicIpAddress]' --output text
++ PUBLIC_IP=
++ '[' -z '' ']'
++ sleep 1
+++ aws ec2 describe-instances --filter Name=key-name,Values=cloud-native-java Name=instance-state-name,Values=running --query 'Reservations[].Instances[].[PublicIpAddress]' --output text
++ PUBLIC_IP=
++ '[' -z '' ']'
++ sleep 1
+++ aws ec2 describe-instances --filter Name=key-name,Values=cloud-native-java Name=instance-state-name,Values=running --query 'Reservations[].Instances[].[PublicIpAddress]' --output text
++ PUBLIC_IP=
++ '[' -z '' ']'
++ sleep 1
+++ aws ec2 describe-instances --filter Name=key-name,Values=cloud-native-java Name=instance-state-name,Values=running --query 'Reservations[].Instances[].[PublicIpAddress]' --output text
++ PUBLIC_IP=
++ '[' -z '' ']'
++ sleep 1
+++ aws ec2 describe-instances --filter Name=key-name,Values=cloud-native-java Name=instance-state-name,Values=running --query 'Reservations[].Instances[].[PublicIpAddress]' --output text
++ PUBLIC_IP=
++ '[' -z '' ']'
++ sleep 1
+++ aws ec2 describe-instances --filter Name=key-name,Values=cloud-native-java Name=instance-state-name,Values=running --query 'Reservations[].Instances[].[PublicIpAddress]' --output text
++ PUBLIC_IP=
++ '[' -z '' ']'
++ sleep 1
+++ aws ec2 describe-instances --filter Name=key-name,Values=cloud-native-java Name=instance-state-name,Values=running --query 'Reservations[].Instances[].[PublicIpAddress]' --output text
++ PUBLIC_IP=
++ '[' -z '' ']'
++ sleep 1
+++ aws ec2 describe-instances --filter Name=key-name,Values=cloud-native-java Name=instance-state-name,Values=running --query 'Reservations[].Instances[].[PublicIpAddress]' --output text
++ PUBLIC_IP=
++ '[' -z '' ']'
++ sleep 1
+++ aws ec2 describe-instances --filter Name=key-name,Values=cloud-native-java Name=instance-state-name,Values=running --query 'Reservations[].Instances[].[PublicIpAddress]' --output text
++ PUBLIC_IP=52.11.207.251
++ '[' -z 52.11.207.251 ']'
++ ssh -i /Users/bkromhout/cloud-native-java.pem -o StrictHostKeyChecking=no ubuntu@52.11.207.251 'curl -s http://169.254.169.254/latest/meta-data/instance-id; echo'
+Warning: Permanently added '52.11.207.251' (ECDSA) to the list of known hosts.
+i-f784be33
+bkromhout:~ bkromhout$

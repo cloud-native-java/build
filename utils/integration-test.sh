@@ -2,7 +2,7 @@
 
 set -e
 
-source ./build/utils/common.sh
+source `dirname $0`/common.sh
 
 
 export ROOT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )

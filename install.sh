@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./build/utils/common.sh
+source `dirname $0`/utils/common.sh
 
 
 CF_USER=$1

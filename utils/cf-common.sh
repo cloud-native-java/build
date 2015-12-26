@@ -15,8 +15,6 @@ function app_domain(){
     echo $D
 }
 
-
-
 function deploy_app(){
     APP_NAME=$1
     cd $APP_NAME

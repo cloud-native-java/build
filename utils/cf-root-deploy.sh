@@ -2,7 +2,7 @@
 
 set -e
 
-export ROOT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+export ROOT_DIR=`dirname $0`
 export SWAP=${SWAP:-$TMPDIR}
 
 $ROOT_DIR/cf-common.sh
@@ -75,4 +75,3 @@ invoke_file_in_dir $PWD
 
 cf services
 cf apps
-

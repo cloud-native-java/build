@@ -8,9 +8,9 @@ export PATH=$PATH:$HOME/bin
 
 
 # run the tests and deploy the service
-mvn -DskipTests=true clean deploy || die "'mvn clean deploy' failed" 1
+mvn -DskipTests=true clean deploy || die "'mvn clean deploy' failed"
 
 # deploy to CF
-UTILS=$(cd `dirname $0` && pwd )/utils
+UTILS=`dirname $0`/utils
 $UTILS/cf-root-deploy.sh
 $UTILS/integration-test.sh

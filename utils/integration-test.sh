@@ -1,17 +1,15 @@
 #!/usr/bin/env bash
 
+echo INTEGRATION TEST
 set -e
 
-export ROOT_DIR=`dirname $0`
-export SWAP=${SWAP:-$TMPDIR}
+root=`dirname $0`
+source $root/common.sh
 
-source $ROOT_DIR/common.sh
-$ROOT_DIR/cf-common.sh
+rm -rf $SKIP_FILE
 
-function integration_test(){
-    root=$1
-    integration_test=$root/`basename $root`-it
-    [ -d "$integration_test" ] &&  mvn -f $integration_test/pom.xml clean install || echo "there are no integration tests to run in '$integration_test'" 
-}
+it_dir=`integration_test_directory $PWD`
 
-integration_test `pwd`
+[ -d "$it_dir" ] && invoke_file_in_dir $it_dir || echo "there are no integration tests to run in '$integration_test'"
+
+

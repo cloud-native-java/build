@@ -8,11 +8,13 @@ source $root/common.sh
 
 rm -rf $SKIP_FILE
 
-function integration_test(){
+it_dir=`integration_test_directory $PWD`
+echo $it_dir
 
-    it_dir=`integration_test_directory $PWD`
+function integration_test(){
     invoke_file_in_dir $it_dir
-    mvn -f $it_dir/pom.xml clean install
+    mvn_pom=$it_dir/pom.xml
+    [ -f "$mvn_pom" ] && mvn -f $mvn_pom clean install
 }
 
 

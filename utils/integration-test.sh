@@ -8,8 +8,14 @@ source $root/common.sh
 
 rm -rf $SKIP_FILE
 
-it_dir=`integration_test_directory $PWD`
+function integration_test(){
 
-[ -d "$it_dir" ] && invoke_file_in_dir $it_dir || echo "there are no integration tests to run in '$integration_test'"
+    it_dir=`integration_test_directory $PWD`
+    invoke_file_in_dir $it_dir
+    mvn -f $it_dir/pom.xml clean install
+}
+
+
+[ -d "$it_dir" ] && integration_test || echo "there are no integration tests to run in '$integration_test'"
 
 

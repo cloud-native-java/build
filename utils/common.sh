@@ -67,7 +67,7 @@ function traverse_and_reset(){
     svcs_to_delete_file="${SWAP}services_to_delete_$RANDOM.txt"
 
     find $start -iname "manifest.yml" -type f | while read l ; do
-    
+
         app_name=$( cat $l | grep name | cut -f 2 -d: );
         cf d -f $app_name
 

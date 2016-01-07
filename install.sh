@@ -26,6 +26,12 @@ function validate_cf(){
     cf apps
 }
 
+case $5 in
+    --docker-aws )
+        export BUILD_DIRECTORY=$( cd `dirname $0` && pwd )
+        sh $BUILD_DIRECTORY/docker-aws.sh create
+        source $BUILD_DIRECTORY/docker-aws.sh;;
+esac
 
 mvn clean install || die "'mvn clean install' failed" 1
 validate_cf

@@ -33,5 +33,12 @@ case $5 in
         source $BUILD_DIRECTORY/docker-aws.sh;;
 esac
 
-mvn clean install || die "'mvn clean install' failed" 1
+mvn clean install || destroy_docker_aws || die "'mvn clean install' failed" 1
 validate_cf
+
+function destroy_docker_aws(){
+  case $5 in
+      --docker-aws )
+      sh $BUILD_DIRECTORY/docker-aws.sh delete
+  esac
+}

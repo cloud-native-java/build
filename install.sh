@@ -6,6 +6,7 @@ CF_USER=$1
 CF_PASSWORD=$2
 CF_ORG=$3
 CF_SPACE=$4
+DOCKER_AWS=$5
 
 function install_cf(){
     mkdir -p $HOME/bin
@@ -27,19 +28,25 @@ function validate_cf(){
 }
 
 function destroy_docker_aws(){
-  case $5 in
-      --docker-aws )
-      sh $BUILD_DIRECTORY/docker-aws.sh delete;;
-  esac
+    case $DOCKER_AWS in
+        --docker-aws )
+          echo "Destroying instance $INSTANCE_ID..."
+          sh $BUILD_DIRECTORY/docker-aws.sh delete;;
+    esac
 }
 
-case $5 in
+case $DOCKER_AWS in
     --docker-aws )
         export BUILD_DIRECTORY=$( cd `dirname $0` && pwd )
         sh $BUILD_DIRECTORY/docker-aws.sh create
-        source $BUILD_DIRECTORY/docker-aws.sh;;
+        source $BUILD_DIRECTORY/docker-aws.sh source;;
 esac
 
 mvn clean install || destroy_docker_aws || die "'mvn clean install' failed" 1
-destroy_docker_aws
+
+case $DOCKER_AWS in
+    --docker-aws )
+        destroy_docker_aws;;
+esac
+
 validate_cf

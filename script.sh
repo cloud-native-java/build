@@ -6,6 +6,12 @@ export PATH=$PATH:$HOME/bin
 export SKIP_FILE=$PWD/skip.txt
 export BUILD_DIRECTORY=$( cd `dirname $0` && pwd )
 
+case $5 in
+    --docker-aws )
+        sh $BUILD_DIRECTORY/docker-aws.sh create
+        source $BUILD_DIRECTORY/docker-aws.sh;;
+esac
+
 # run the tests and deploy the service
 mvn -DskipTests=true clean deploy || die "'mvn clean deploy' failed" 1
 

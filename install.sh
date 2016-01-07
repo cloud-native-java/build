@@ -26,6 +26,13 @@ function validate_cf(){
     cf apps
 }
 
+function destroy_docker_aws(){
+  case $5 in
+      --docker-aws )
+      sh $BUILD_DIRECTORY/docker-aws.sh delete;;
+  esac
+}
+
 case $5 in
     --docker-aws )
         export BUILD_DIRECTORY=$( cd `dirname $0` && pwd )
@@ -34,11 +41,5 @@ case $5 in
 esac
 
 mvn clean install || destroy_docker_aws || die "'mvn clean install' failed" 1
+destroy_docker_aws
 validate_cf
-
-function destroy_docker_aws(){
-  case $5 in
-      --docker-aws )
-      sh $BUILD_DIRECTORY/docker-aws.sh delete
-  esac
-}

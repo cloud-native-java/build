@@ -19,7 +19,7 @@ case $1 in
         eval "$aws $docker" ;;
 esac
 
-export PUBLIC_IP="$(cat ./aws-volume/public_ip)"
+export PUBLIC_IP="$(sudo cat ./aws-volume/public_ip)"
 export PUBLIC_IP="$(echo $PUBLIC_IP | sed 's/\( -\)//1')"
 
 export SPRING_NEO4J_HOST=$PUBLIC_IP

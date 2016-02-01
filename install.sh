@@ -39,6 +39,16 @@ case $DOCKER_AWS in
     --docker-aws )
         export BUILD_DIRECTORY=$( cd `dirname $0` && pwd )
         sh $BUILD_DIRECTORY/docker-aws.sh create
+
+        # Add Neo4j
+        sh $BUILD_DIRECTORY/docker-aws.sh docker "run -d -p 7474:7474 -e NEO4J_AUTH=none --name neo4j neo4j:latest"
+
+        # Add MongoDB
+        sh $BUILD_DIRECTORY/docker-aws.sh docker "run -d -p 27017:27017 --name mongo mongo:latest"
+
+        # Add Redis
+        sh $BUILD_DIRECTORY/docker-aws.sh docker "run -d -p 6379:6379 --name redis redis:latest"
+
         source $BUILD_DIRECTORY/docker-aws.sh source;;
 esac
 

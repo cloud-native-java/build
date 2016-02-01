@@ -3,7 +3,7 @@ set -e
 
 # Create the volume for persisting container state from AWS CLI
 mkdir -p aws-volume
-sudo chmod -R 777 aws-volume
+sudo chmod -R 600 aws-volume
 
 create="sh /aws/aws-create-instance.sh"
 delete="sh /aws/aws-delete-instance.sh"

@@ -2,15 +2,17 @@
 
 source `dirname $0`/utils/common.sh
 
-CF_USER=$1
-CF_PASSWORD=$2
-CF_ORG=$3
-CF_SPACE=$4
+CF_USER=${1:-$CF_USER}
+CF_PASSWORD=${2:-$CF_PASSWORD}
+CF_ORG=${3:-$CF_ORG}
+CF_SPACE=${4:-$CF_SPACE}
 DOCKER_AWS=$5
+
+echo $CF_USER $CF_PASSWORD $CF_ORG $CF_SPACE
 
 function install_cf(){
     mkdir -p $HOME/bin
-    curl -v -L -o cf.tgz 'https://cli.run.pivotal.io/stable?release=linux64-binary&version=6.13.0&source=github-rel'
+    curl -v -L -o cf.tgz 'https://cli.run.pivotal.io/stable?release=linux64-binary&version=6.15.0&source=github-rel'
     tar zxpf cf.tgz
     mkdir -p $HOME/bin && mv cf $HOME/bin
 }
@@ -22,9 +24,9 @@ function validate_cf(){
     export PATH=$PATH:$HOME/bin
 
     cf api https://api.run.pivotal.io
-    cf auth $CF_USER $CF_PASSWORD
-    cf target -o $CF_ORG -s $CF_SPACE
-    cf apps
+    cf auth $CF_USER "$CF_PASSWORD" && \
+     cf target -o $CF_ORG -s $CF_SPACE && \
+     cf apps
 }
 
 function destroy_docker_aws(){

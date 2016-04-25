@@ -7,7 +7,7 @@ export SKIP_FILE=$PWD/skip.txt
 export BUILD_DIRECTORY=$( cd `dirname $0` && pwd )
 
 # run the tests and deploy the service
-#mvn -DskipTests=true clean deploy || die "'mvn clean deploy' failed" 1
+mvn -DskipTests=true clean deploy || die "'mvn clean deploy' failed" 1
 
 # remove and recreate the skip file
 rm -rf $SKIP_FILE

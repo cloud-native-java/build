@@ -25,8 +25,8 @@ function validate_cf(){
 
     cf api https://api.run.pivotal.io
     cf auth $CF_USER "$CF_PASSWORD" && \
-     cf target -o $CF_ORG -s $CF_SPACE && \
-     cf apps
+    cf target -o $CF_ORG -s $CF_SPACE && \
+    cf apps
 }
 
 function destroy_docker_aws(){

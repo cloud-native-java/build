@@ -55,7 +55,7 @@ case $DOCKER_AWS in
         ;;
 esac
 
-mvn clean install || destroy_docker_aws || die "'mvn clean install' failed" 1
+mvn  clean install || destroy_docker_aws || die "'mvn clean install' failed" 1
 
 case $DOCKER_AWS in
     --docker-aws )

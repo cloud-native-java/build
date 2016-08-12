@@ -12,7 +12,7 @@ echo $CF_USER $CF_PASSWORD $CF_ORG $CF_SPACE
 
 function install_cf(){
     mkdir -p $HOME/bin
-    curl -v -L -o cf.tgz 'https://cli.run.pivotal.io/stable?release=linux64-binary&version=6.15.0&source=github-rel'
+    curl -v -L -o cf.tgz 'https://cli.run.pivotal.io/stable?release=linux64-binary&version=6.21.1&source=github-rel'
     tar zxpf cf.tgz
     mkdir -p $HOME/bin && mv cf $HOME/bin
 }
@@ -55,7 +55,7 @@ case $DOCKER_AWS in
         ;;
 esac
 
-mvn  clean install || destroy_docker_aws || die "'mvn clean install' failed" 1
+mvn clean install || destroy_docker_aws || die "'mvn clean install' failed" 1
 
 case $DOCKER_AWS in
     --docker-aws )

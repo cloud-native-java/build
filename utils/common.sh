@@ -82,7 +82,9 @@ function traverse_and_reset(){
 
     rm -rf ${svcs_to_delete_file}
 
-    cf delete-orphaned-routes -f
+    # this logic gets more involved when we have route services
+
+    cf delete-orphaned-routes -f # this is the problem
 }
 
 function traverse(){

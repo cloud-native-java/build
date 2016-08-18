@@ -2,6 +2,9 @@
 
 source `dirname $0`/utils/common.sh
 
+python --version
+pip --version && pip install requests || echo "can't install requests. No pip?"
+
 CF_USER=${1:-$CF_USER}
 CF_PASSWORD=${2:-$CF_PASSWORD}
 CF_ORG=${3:-$CF_ORG}

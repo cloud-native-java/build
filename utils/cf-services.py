@@ -10,7 +10,6 @@ def cf_app_services(app_name, token):
     app_name = app_name.strip()
     root_uri = 'http://api.run.pivotal.io%s'
 
-
     def oauth(r, t):
         r.add_header('Authorization', t)
         return r

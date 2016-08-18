@@ -19,6 +19,7 @@ utils=`dirname $0`/utils
 $utils/root-deploy.sh
 $utils/integration-test.sh
 
-cf delete-orphaned-routes -f
+$utils/cf-routes.sh
+
 cf apps
 cf services

@@ -16,10 +16,14 @@ rm -rf $SKIP_FILE
 echo `integration_test_directory $PWD` > $SKIP_FILE
 
 utils=`dirname $0`/utils
+
+$utils/cf-delete-orphaned-routes.sh
+
 $utils/root-deploy.sh
 $utils/integration-test.sh
 
 $utils/cf-delete-orphaned-routes.sh
+
 
 cf apps
 cf services

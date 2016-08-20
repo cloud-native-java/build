@@ -8,6 +8,8 @@ import sys
 
 def cf_delete_orphaned_route_service_routes(token):
 
+    print 'inside cf_delete_orphaned_route_service_routes with token %s' % token 
+
     auth_header = {'Authorization': token}
     root_uri = 'http://api.run.pivotal.io%s'
 

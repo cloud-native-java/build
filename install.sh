@@ -11,7 +11,6 @@ CF_ORG=${3:-$CF_ORG}
 CF_SPACE=${4:-$CF_SPACE}
 DOCKER_AWS=$5
 
-echo $CF_USER $CF_PASSWORD $CF_ORG $CF_SPACE
 
 function install_cf(){
     mkdir -p $HOME/bin

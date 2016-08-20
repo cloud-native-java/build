@@ -2,14 +2,17 @@
 
 source `dirname $0`/utils/common.sh
 
-python --version
-pip --version && pip install requests || echo "can't install requests. No pip?"
+function install_python_deps(){
+  python --version
+  pip --version && pip install requests --user || echo "can't install requests. No pip?"
+}
 
 CF_USER=${1:-$CF_USER}
 CF_PASSWORD=${2:-$CF_PASSWORD}
 CF_ORG=${3:-$CF_ORG}
 CF_SPACE=${4:-$CF_SPACE}
 DOCKER_AWS=$5
+
 
 
 function install_cf(){
@@ -56,6 +59,8 @@ case $DOCKER_AWS in
 
         ;;
 esac
+
+install_python_deps
 
 mvn clean install || destroy_docker_aws || die "'mvn clean install' failed" 1
 

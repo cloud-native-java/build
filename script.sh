@@ -22,7 +22,7 @@ $utils/cf-delete-orphaned-routes.sh
 $utils/root-deploy.sh
 $utils/integration-test.sh
 
-$utils/cf-delete-orphaned-routes.sh
+#$utils/cf-delete-orphaned-routes.sh
 
 
 cf apps

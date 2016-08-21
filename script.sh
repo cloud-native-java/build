@@ -24,6 +24,5 @@ $utils/integration-test.sh
 
 #$utils/cf-delete-orphaned-routes.sh
 
-
 cf apps
 cf services

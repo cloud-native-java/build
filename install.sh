@@ -17,7 +17,8 @@ DOCKER_AWS=$5
 
 function install_cf(){
     mkdir -p $HOME/bin
-    curl -v -L -o cf.tgz 'https://cli.run.pivotal.io/stable?release=linux64-binary&version=6.21.1&source=github-rel'
+    curl -v -L -o cf.tgz 'https://cli.run.pivotal.io/stable?release=linux64-binary&version=6.23.1&source=github-rel'
+#    curl -v -L -o cf.tgz 'https://cli.run.pivotal.io/stable?release=linux64-binary&version=6.21.1&source=github-rel'
     tar zxpf cf.tgz
     mkdir -p $HOME/bin && mv cf $HOME/bin
 }

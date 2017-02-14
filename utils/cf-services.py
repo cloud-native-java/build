@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
+import json
 import os
 import sys
 import urllib2
-import json
 
 
 def cf_app_services(app_name, token):
@@ -18,7 +18,8 @@ def cf_app_services(app_name, token):
         return urllib2.urlopen(oauth(urllib2.Request(uri), token))
 
     apps = oauth_request(root_uri % '/v2/apps')
-    app = [a['entity'] for a in json.loads(apps.read())['resources'] if a['entity']['name'] == app_name]
+    app = [a['entity'] for a in json.loads(apps.read())['resources'] if
+           a['entity']['name'] == app_name]
     if len(app) == 0:
         return []
 
@@ -35,9 +36,9 @@ if __name__ == '__main__':
 
     # ./cf-app-services.py bootiful-app "`cf oauth-token`"
 
-    app_name, token  = sys.argv[1:3]
-    
-    if token.lower().find('bearer') > -1 :
-        token = 'bearer %s' %  token.split('bearer')[1].strip()
+    app_name, token = sys.argv[1:3]
+
+    if token.lower().find('bearer') > -1:
+        token = 'bearer %s' % token.split('bearer')[1].strip()
 
     print os.linesep.join(cf_app_services(app_name, token))

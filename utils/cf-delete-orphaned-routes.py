@@ -7,8 +7,7 @@ import sys
 
 
 def cf_delete_orphaned_route_service_routes(token):
-
-    print 'inside cf_delete_orphaned_route_service_routes with token %s' % token 
+    print 'inside cf_delete_orphaned_route_service_routes with token %s' % token
 
     auth_header = {'Authorization': token}
     root_uri = 'http://api.run.pivotal.io%s'
@@ -39,6 +38,7 @@ def cf_delete_orphaned_route_service_routes(token):
             url_to_unbind = root_uri % cf_curl
             print 'calling DELETE on %s' % url_to_unbind
             requests.delete(url_to_unbind, headers=auth_header)
+
 
 if __name__ == '__main__':
     # ./cf-delete-orphaned-routes.py "`cf oauth-token`"

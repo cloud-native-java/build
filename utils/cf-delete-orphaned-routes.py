@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-# TODO this is required to run this:
-# pip install requests
 import requests
 import sys
 
